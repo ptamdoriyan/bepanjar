@@ -13,7 +13,7 @@ class Radius extends RestController
         $this->load->model('Model_radius', 'radius');
     }
 
-    public function kelurahan_get()
+    public function index_get()
     {
         $idkecamatan = $this->get('idkecamatan');
         $datakelurahan = $this->radius->getdatakelurahan($idkecamatan);
