@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Modelradius extends CI_Model
+class ModelRadius extends CI_Model
 {
 
     public function getdatakelurahan($idkecamatan)
