@@ -10,7 +10,7 @@ class Radius extends RestController
     {
         // Construct the parent class
         parent::__construct();
-        $this->load->model('model_radius', 'radius');
+        $this->load->model('Model_radius', 'radius');
     }
 
     public function kelurahan_get()
