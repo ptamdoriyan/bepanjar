@@ -19,10 +19,7 @@ class Radius extends RestController
         if ($idkecamatan) {
             $datakelurahan = $this->radius->getdatakelurahan($idkecamatan);
             if ($datakelurahan) {
-                $this->response([
-                    'status' => 'Success',
-                    'data' => $datakelurahan
-                ], 200);
+                $this->response($datakelurahan, 200);
             } else {
                 $this->response([
                     'status' => 'Null',
