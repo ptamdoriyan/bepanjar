@@ -16,7 +16,31 @@ class Radius extends RestController
     public function index_get()
     {
         $idkecamatan = $this->get('idkecamatan');
-        $datakelurahan = $this->radius->getdatakelurahan($idkecamatan);
-        $this->response($datakelurahan, 200);
+        if ($idkecamatan) {
+            $datakelurahan = $this->radius->getdatakelurahan($idkecamatan);
+            if ($datakelurahan) {
+                $this->response([
+                    'status' => 'Success',
+                    'data' => $datakelurahan
+                ], 200);
+            } else {
+                $this->response([
+                    'status' => 'Null',
+                    'message' => 'Id Kelurahan tidak terdaftar'
+                ], 200);
+            }
+        }
+        if ($idkecamatan === null) {
+            $datakelurahan = $this->radius->getalldatakelurahan();
+            $this->response([
+                'status' => 'Success',
+                'data' => $datakelurahan
+            ], 200);
+        } else {
+            $this->response([
+                'status' => 'Error',
+                'message' => 'API Error Callback'
+            ], 404);
+        }
     }
 }
